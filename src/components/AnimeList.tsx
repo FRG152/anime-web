@@ -1,13 +1,12 @@
+import { getAnimes } from "@/utils/api";
 import Card from "./Card";
 import { AnimeData } from "@/types";
 
-const AnimeList = async () => {
-  const response = await fetch("https://kitsu.io/api/edge/anime");
-  const data = await response.json();
-
+const AnimeList = async ({ params }) => {
+  const data = await getAnimes(params);
   return (
     <div className="container__list">
-      {data.data.map((item: AnimeData) => (
+      {data.map((item: AnimeData) => (
         <Card key={item.id} data={item} />
       ))}
     </div>

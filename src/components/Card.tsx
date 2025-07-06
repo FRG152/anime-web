@@ -1,5 +1,8 @@
-import { AnimeData } from "@/types";
+"use client";
+
+import Link from "next/link";
 import Image from "next/image";
+import { AnimeData } from "@/types";
 
 interface Props {
   data: AnimeData;
@@ -7,8 +10,9 @@ interface Props {
 
 const Card = ({ data }: Props) => {
   const { titles, showType, status, posterImage } = data.attributes;
+
   return (
-    <div className="container__card">
+    <Link href={`${data.id}`} className="container__card">
       <Image
         src={posterImage?.original}
         alt="card image"
@@ -22,7 +26,7 @@ const Card = ({ data }: Props) => {
         <span>{showType}</span>
         <span>{status}</span>
       </div>
-    </div>
+    </Link>
   );
 };
 

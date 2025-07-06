@@ -70,3 +70,8 @@ export interface AnimeResponse {
     last: string;
   };
 }
+
+export interface GetAnimesParams {
+  id?: string;
+  filter?: string;
+}
