@@ -1,103 +1,72 @@
-interface ImageUrls {
-  image_url: string;
-  small_image_url: string;
-  large_image_url: string;
+interface AnimeTitle {
+  en?: string;
+  en_jp?: string;
+  ja_jp?: string;
 }
 
-interface TrailerImages {
-  image_url: string;
-  small_image_url: string;
-  medium_image_url: string;
-  large_image_url: string;
-  maximum_image_url: string;
+interface Image {
+  tiny: string;
+  small: string;
+  medium?: string;
+  large?: string;
+  original: string;
 }
 
-interface Trailer {
-  youtube_id: string;
-  url: string;
-  embed_url: string;
-  images: TrailerImages;
+interface RatingFrequencies {
+  [rating: string]: string;
 }
 
-interface Title {
-  type: string;
-  title: string;
+interface AnimeAttributes {
+  createdAt: string;
+  updatedAt: string;
+  slug: string;
+  synopsis: string;
+  coverImageTopOffset: number;
+  titles: AnimeTitle;
+  canonicalTitle: string;
+  abbreviatedTitles: string[];
+  averageRating: string;
+  ratingFrequencies: RatingFrequencies;
+  userCount: number;
+  favoritesCount: number;
+  startDate: string;
+  endDate: string;
+  popularityRank: number;
+  ratingRank: number;
+  ageRating: string;
+  ageRatingGuide: string;
+  subtype: string;
+  status: string;
+  tba: string;
+  posterImage: Image;
+  coverImage: Image;
+  episodeCount: number;
+  episodeLength: number;
+  youtubeVideoId: string;
+  showType: string;
+  nsfw: boolean;
 }
 
-interface Aired {
-  from: string;
-  to: string;
-  prop: {
-    from: { day: number; month: number; year: number };
-    to: { day: number; month: number; year: number };
-  };
-  string: string;
-}
-
-interface Producer {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
-}
-
-interface Genre {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
-}
-
-interface Theme {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
+interface AnimeLink {
+  self: string;
 }
 
 export interface AnimeData {
-  mal_id: number;
-  url: string;
-  images: {
-    jpg: ImageUrls;
-    webp: ImageUrls;
-  };
-  trailer: Trailer;
-  approved: boolean;
-  titles: Title[];
-  title: string;
-  title_english: string;
-  title_japanese: string;
-  title_synonyms: string[];
+  id: string;
   type: string;
-  source: string;
-  episodes: number;
-  status: string;
-  airing: boolean;
-  aired: Aired;
-  duration: string;
-  rating: string;
-  score: number;
-  scored_by: number;
-  rank: number;
-  popularity: number;
-  members: number;
-  favorites: number;
-  synopsis: string;
-  background: string;
-  season: string;
-  year: number;
-  broadcast: {
-    day: string;
-    time: string;
-    timezone: string;
-    string: string;
+  links: AnimeLink;
+  attributes: AnimeAttributes;
+}
+
+export interface AnimeResponse {
+  data: AnimeData[];
+  meta: {
+    count: number;
   };
-  producers: Producer[];
-  licensors: Producer[];
-  studios: Producer[];
-  genres: Genre[];
-  explicit_genres: [];
-  themes: Theme[];
-  demographics: [];
+  links: {
+    first: string;
+    prev: string;
+    next: string;
+    last: string;
+  };
 }

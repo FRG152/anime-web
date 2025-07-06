@@ -6,11 +6,11 @@ interface Props {
 }
 
 const Card = ({ data }: Props) => {
-  const { title, type, status, images } = data;
+  const { titles, showType, status, posterImage } = data.attributes;
   return (
     <div className="container__card">
       <Image
-        src={images.jpg.image_url}
+        src={posterImage?.original}
         alt="card image"
         width={250}
         height={400}
@@ -18,8 +18,8 @@ const Card = ({ data }: Props) => {
         priority
       />
       <div className="card__content">
-        <h3 className="card__title">{title}</h3>
-        <span>{type}</span>
+        <h3 className="card__title">{titles?.en}</h3>
+        <span>{showType}</span>
         <span>{status}</span>
       </div>
     </div>
