@@ -3,7 +3,7 @@ import { GetAnimesParams } from "@/types";
 const URL = process.env.URL_BASE_API;
 
 export const getAnimes = async (params: GetAnimesParams) => {
-  const { id, filter } = await params;
+  const { id, filter } = params;
 
   console.log(id);
 
@@ -25,5 +25,15 @@ export const getAnimes = async (params: GetAnimesParams) => {
     return data;
   } catch (error) {
     console.error("Error to get animes", error);
+  }
+};
+
+export const getTrendingAnimes = async () => {
+  try {
+    const response = await fetch(`${URL}/trending/anime`);
+    const { data } = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error to get trending animes", error);
   }
 };

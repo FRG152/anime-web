@@ -6,6 +6,7 @@ import { RootState } from "@/store/store";
 import { setInputValue } from "@/store/anime/animeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const Search = () => {
   const searchParams = useSearchParams();
@@ -27,18 +28,20 @@ const Search = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSearch}
-      className="flex w-full max-w-sm items-center my-5 gap-2"
-    >
+    <form onSubmit={handleSearch} className="container__search">
       <Input
         type="text"
         name="filter"
         value={inputValue || ""}
+        className="border-none"
         placeholder="Search for your anime..."
         onChange={(e) => dispatch(setInputValue(e.target.value))}
       />
-      <Button type="submit" variant="outline">
+      <Button
+        type="submit"
+        variant="outline"
+        className="w-20 text-lg rounded-none"
+      >
         Search
       </Button>
     </form>

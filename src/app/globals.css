@@ -1,13 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 
 @import "tailwindcss";
 @import "tw-animate-css";
 
 body {
-  font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  background-color: #f9faf9;
+  font-family: "Oswald", sans-serif;
+  background-color: #000;
+}
+
+button,
+input {
+  outline: none;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -129,14 +132,18 @@ body {
 }
 
 @layer components {
+  .container__search {
+    @apply flex items-center bg-[#252525] gap-2 p-2;
+  }
+
   .container__card {
-    @apply cursor-pointer;
+    @apply w-[250px] cursor-pointer;
   }
   .card__image {
     @apply w-[250px] h-[400px] mx-auto object-cover;
   }
   .card__title {
-    @apply text-black text-left font-semibold;
+    @apply text-white text-left font-semibold text-2xl;
   }
   .card__content {
     @apply flex flex-col justify-start;
@@ -145,6 +152,84 @@ body {
 
 @layer base {
   .container__list {
-    @apply grid place-items-center grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10;
+    @apply flex flex-col mt-10;
+  }
+  .list__title {
+    @apply w-full text-left text-5xl text-white mb-5;
+  }
+  .list__content {
+    @apply flex flex-row flex-wrap justify-start gap-5;
+  }
+
+  .container__swiper {
+    @apply flex flex-col mt-10;
+  }
+  .swiper__title {
+    @apply w-full text-left text-5xl text-white mb-5;
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+.swiper::after {
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 10px 0px 100px 100px #000000;
+  position: absolute;
+  z-index: 100;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 250px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+}
+.loader::after,
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: animloader 2s linear infinite;
+}
+.loader::after {
+  animation-delay: 1s;
+}
+
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
   }
 }

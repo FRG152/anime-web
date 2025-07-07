@@ -72,6 +72,6 @@ export interface AnimeResponse {
 }
 
 export interface GetAnimesParams {
-  id?: string;
+  id?: string | "";
   filter?: string;
 }

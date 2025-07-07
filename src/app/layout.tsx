@@ -1,6 +1,8 @@
-import ProviderStore from "@/store/ProviderStore";
 import "./globals.css";
+import "swiper/css";
+import "swiper/css/pagination";
 import type { Metadata } from "next";
+import ProviderStore from "@/store/ProviderStore";
 
 export const metadata: Metadata = {
   title: "Anime web",
