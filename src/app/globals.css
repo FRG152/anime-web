@@ -1,17 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
-
 @import "tailwindcss";
 @import "tw-animate-css";
-
-body {
-  font-family: "Oswald", sans-serif;
-  background-color: #000;
-}
-
-button,
-input {
-  outline: none;
-}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -88,6 +77,16 @@ input {
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+body {
+  font-family: "Oswald", sans-serif;
+  background-color: #000;
+}
+
+button,
+input {
+  outline: none;
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -132,8 +131,24 @@ input {
 }
 
 @layer components {
+  .container__navbar {
+    @apply w-full h-[60px] flex items-center justify-between top-0 left-0 right-0 fixed bg-[#000000d2] z-10 px-5;
+  }
+  .navbar__content-left {
+    @apply flex items-center gap-5;
+  }
+  .navbar__logo {
+    @apply text-2xl text-red-500 font-extrabold;
+  }
+  .navbar__links {
+    @apply flex items-center gap-5;
+  }
+  .navbar__link {
+    @apply text-white font-extralight cursor-pointer transition-all hover:tracking-widest;
+  }
+
   .container__search {
-    @apply flex items-center bg-[#252525] gap-2 p-2;
+    @apply flex items-center w-[300px] z-100 gap-1 p-2;
   }
 
   .container__card {
@@ -143,7 +158,7 @@ input {
     @apply w-[250px] h-[400px] mx-auto object-cover;
   }
   .card__title {
-    @apply text-white text-left font-semibold text-2xl;
+    @apply text-white text-left text-lg;
   }
   .card__content {
     @apply flex flex-col justify-start;
@@ -151,6 +166,10 @@ input {
 }
 
 @layer base {
+  .container__hero {
+    @apply h-[700px];
+  }
+
   .container__list {
     @apply flex flex-col mt-10;
   }

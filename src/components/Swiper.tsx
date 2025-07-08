@@ -2,8 +2,9 @@
 
 import Card from "./Card";
 import { AnimeData } from "@/types";
-import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { breakpoints } from "@/utils/swiper";
 
 interface Props {
   title?: string;
@@ -15,12 +16,18 @@ const SwiperComponent = ({ title, data }: Props) => {
     <div className="container__swiper">
       {title && <h1 className="swiper__title">{title}</h1>}
       <Swiper
-        slidesPerView={7}
-        spaceBetween={0}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        navigation={true}
+        slidesPerView={1}
+        spaceBetween={10}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        breakpoints={breakpoints}
+        modules={[Autoplay, Pagination, Navigation]}
         className="swiper"
       >
         {data.map((item: AnimeData) => (

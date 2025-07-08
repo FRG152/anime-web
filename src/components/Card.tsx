@@ -27,8 +27,13 @@ const Card = ({ data, showInfo }: Props) => {
           <h3 className="card__title">
             {titles?.en ? titles.en_jp : titles.ja_jp}
           </h3>
-          <span className="text-white text-lg font-extralight">{showType}</span>
-          <span className="text-white text-lg font-extralight">{status}</span>
+          <p className="flex items-center text-white gap-2">
+            <span className="text-white text-lg font-extralight">
+              {showType}
+            </span>
+            -
+            <span className="text-white text-lg font-extralight">{status}</span>
+          </p>
         </div>
       )}
     </Link>

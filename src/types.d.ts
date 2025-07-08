@@ -45,6 +45,7 @@ interface AnimeAttributes {
   youtubeVideoId: string;
   showType: string;
   nsfw: boolean;
+  title?: string;
 }
 
 interface AnimeLink {
@@ -74,4 +75,5 @@ export interface AnimeResponse {
 export interface GetAnimesParams {
   id?: string | "";
   filter?: string;
+  category?: string;
 }
