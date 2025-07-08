@@ -9,11 +9,12 @@ import { breakpoints } from "@/utils/swiper";
 interface Props {
   title?: string;
   data: AnimeData[];
+  styles?: string;
 }
 
-const SwiperComponent = ({ title, data }: Props) => {
+const SwiperComponent = ({ title, data, styles }: Props) => {
   return (
-    <div className="container__swiper">
+    <div className={`container__swiper ${styles}`}>
       {title && <h1 className="swiper__title">{title}</h1>}
       <Swiper
         autoplay={{
@@ -22,7 +23,7 @@ const SwiperComponent = ({ title, data }: Props) => {
         }}
         navigation={true}
         slidesPerView={1}
-        spaceBetween={10}
+        spaceBetween={200}
         pagination={{
           clickable: true,
         }}
@@ -32,7 +33,11 @@ const SwiperComponent = ({ title, data }: Props) => {
       >
         {data.map((item: AnimeData) => (
           <SwiperSlide key={item.id}>
-            <Card data={item} showInfo={false} />
+            <Card
+              data={item}
+              showInfo={true}
+              // styles="transition-all hover:-translate-y-5"
+            />
           </SwiperSlide>
         ))}
       </Swiper>

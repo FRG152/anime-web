@@ -6,14 +6,15 @@ import { AnimeData } from "@/types";
 
 interface Props {
   data: AnimeData;
+  styles?: string;
   showInfo?: boolean;
 }
 
-const Card = ({ data, showInfo }: Props) => {
-  const { titles, showType, status, posterImage } = data.attributes;
+const Card = ({ data, showInfo, styles }: Props) => {
+  const { titles, posterImage } = data.attributes;
 
   return (
-    <Link href={`${data.id}`} className="container__card">
+    <Link href={`${data.id}`} className={`container__card ${styles}`}>
       <Image
         src={posterImage?.original}
         alt="card image"
@@ -27,13 +28,6 @@ const Card = ({ data, showInfo }: Props) => {
           <h3 className="card__title">
             {titles?.en ? titles.en_jp : titles.ja_jp}
           </h3>
-          <p className="flex items-center text-white gap-2">
-            <span className="text-white text-lg font-extralight">
-              {showType}
-            </span>
-            -
-            <span className="text-white text-lg font-extralight">{status}</span>
-          </p>
         </div>
       )}
     </Link>

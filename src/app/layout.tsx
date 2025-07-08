@@ -1,14 +1,21 @@
 import "./globals.css";
 import "swiper/css";
 import "swiper/css/pagination";
-import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import ProviderStore from "@/store/ProviderStore";
-import { getCategories } from "@/utils/api";
+import type { Metadata } from "next";
+
+import { Poppins } from "next/font/google";
 
 interface Props {
   children: React.ReactNode;
 }
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   title: "Anime web",
@@ -16,13 +23,11 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: Readonly<Props>) {
-  const categories = await getCategories();
-
   return (
     <ProviderStore>
-      <html lang="en">
+      <html lang="en" className={poppins.className}>
         <body>
-          <Navbar categories={categories} />
+          <Navbar />
           {children}
         </body>
       </html>

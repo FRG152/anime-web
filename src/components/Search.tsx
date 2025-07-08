@@ -30,11 +30,14 @@ const SearchComponent = () => {
         type="text"
         name="filter"
         value={inputValue || ""}
-        className="bg-white border-none "
-        placeholder="Search for your anime..."
+        className="bg-[#252525b4] border-none"
+        placeholder="Search"
         onChange={(e) => dispatch(setInputValue(e.target.value))}
       />
-      <Button type="submit" className="bg-red-500 border-none">
+      <Button
+        type="submit"
+        className="bg-red-500 border-none transition-all hover:bg-red-700"
+      >
         <Search color="#fff" />
       </Button>
     </form>
