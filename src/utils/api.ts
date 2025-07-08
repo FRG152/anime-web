@@ -1,10 +1,13 @@
-import { GetAnimesParams } from "@/types";
-
 const URL = process.env.URL_BASE_API;
 
-export const getAnimes = async (params: GetAnimesParams) => {
-  const { id, filter, category } = params;
-  console.log(params);
+export const getAnimes = async (
+  params: Promise<{
+    id?: string | "";
+    filter?: string | "";
+    category?: string | "";
+  }>
+) => {
+  const { id, filter, category } = await params;
   try {
     let url = `${URL}/anime`;
 

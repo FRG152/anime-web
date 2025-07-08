@@ -5,13 +5,16 @@ import LoadingComponent from "@/components/Loading";
 import { getAnimes, getTrendingAnimes } from "@/utils/api";
 import Image from "next/image";
 
-interface Props {
-  searchParams?: Promise<{ filter?: string }>;
-}
-
-export default async function Home({ searchParams }: Props) {
-  const params = await searchParams;
-  const animes = await getAnimes(params || {});
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    id?: string | "";
+    filter?: string | "";
+    category?: string | "";
+  }>;
+}) {
+  const animes = await getAnimes(searchParams);
   const trending = await getTrendingAnimes();
 
   return (

@@ -6,7 +6,7 @@ import Search from "./Search";
 import { AnimeData } from "@/types";
 import { usePathname, useRouter } from "next/navigation";
 
-const Navbar = ({ categories }) => {
+const Navbar = ({ categories }: { categories: AnimeData[] }) => {
   const pathname = usePathname();
   const { replace } = useRouter();
 

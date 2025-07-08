@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { getAnimes } from "@/utils/api";
 
-const Page = async ({ params }) => {
+const Page = async ({
+  params,
+}: {
+  params: Promise<{ id?: string; filter?: string; category?: string }>;
+}) => {
   const { attributes } = await getAnimes(params);
 
   return (
