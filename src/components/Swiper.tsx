@@ -8,7 +8,7 @@ import { breakpoints } from "@/utils/swiper";
 
 interface Props {
   title?: string;
-  data: any;
+  data: AnimeData[];
 }
 
 const SwiperComponent = ({ title, data }: Props) => {

@@ -2,7 +2,7 @@ import Card from "./Card";
 import { AnimeData } from "@/types";
 
 interface Props {
-  data: any;
+  data: AnimeData[];
   title?: string;
   styles?: string;
 }
