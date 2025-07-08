@@ -29,7 +29,7 @@ const Hero = async () => {
         <SwiperComponent
           data={trending}
           title="Trending"
-          styles="left-0 right-0 -bottom-50 absolute"
+          styles="left-0 right-0 bottom-0 absolute"
         />
       </Suspense>
     </div>

@@ -19,7 +19,7 @@ export default async function Home({
     <>
       <Hero />
       <Suspense fallback={<LoadingComponent />}>
-        <Animes title={"Animes"} data={animes} styles="mt-60" />
+        <Animes title={"Animes"} data={animes} styles="mt-10" />
       </Suspense>
     </>
   );

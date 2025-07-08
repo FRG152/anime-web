@@ -33,11 +33,7 @@ const SwiperComponent = ({ title, data, styles }: Props) => {
       >
         {data.map((item: AnimeData) => (
           <SwiperSlide key={item.id}>
-            <Card
-              data={item}
-              showInfo={true}
-              // styles="transition-all hover:-translate-y-5"
-            />
+            <Card data={item} showInfo={true} />
           </SwiperSlide>
         ))}
       </Swiper>

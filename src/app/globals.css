@@ -152,7 +152,7 @@ input {
   }
 
   .container__card {
-    @apply w-[250px] h-[400px] relative rounded-[30px] cursor-pointer;
+    @apply w-[230px] h-[350px] relative rounded-[30px] cursor-pointer;
   }
   .card__image {
     @apply w-full h-full rounded-[30px] object-cover;
@@ -161,7 +161,7 @@ input {
     @apply w-full text-white;
   }
   .card__content {
-    @apply w-[250px] bottom-0 absolute z-50 p-5;
+    @apply w-[230px] bottom-0 absolute z-50 p-5;
   }
   .card__content::after {
     content: "";
@@ -180,7 +180,7 @@ input {
     @apply h-screen relative;
   }
   .hero__content {
-    @apply top-0 left-0 bottom-0 h-full w-full absolute flex flex-col justify-center gap-5 px-5;
+    @apply top-0 left-0 bottom-0 h-[80%] w-full absolute flex flex-col justify-center gap-5 px-5;
   }
   .hero__title {
     @apply font-bold text-5xl text-white;
@@ -192,14 +192,14 @@ input {
     @apply flex items-center gap-2;
   }
   .hero__video {
-    @apply top-0 left-0 bottom-0 h-full w-full object-cover absolute -z-10;
+    @apply top-0 left-0 bottom-0 h-[80%] w-full object-cover absolute -z-10;
   }
 
   .container__list {
     @apply h-[calc(100vh-60px)] flex flex-col mt-10 px-5;
   }
   .list__title {
-    @apply w-full text-left text-3xl text-white mb-5;
+    @apply w-full text-left text-3xl text-white mb-2;
   }
   .list__content {
     @apply flex flex-row flex-wrap justify-start gap-5;
@@ -209,7 +209,7 @@ input {
     @apply flex flex-col px-5;
   }
   .swiper__title {
-    @apply w-full text-left text-3xl text-white mb-5 z-50;
+    @apply w-full text-left text-3xl text-white mb-2 z-50;
   }
 }
 
@@ -219,24 +219,14 @@ input {
   position: relative;
   border-radius: 30px;
 }
-/* .swiper::after {
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  box-shadow: 0px 0px 30px 5px #000000;
-  position: absolute;
-  z-index: 100;
-  height: 100%;
-} */
 
 .swiper-slide {
 }
 
 .swiper-slide img {
   display: block;
-  width: 250px;
-  height: 400px;
+  width: 230px;
+  height: 350px;
   object-fit: cover;
 }
 
