@@ -3,16 +3,21 @@ const URL = process.env.URL_BASE_API;
 export const getAnimes = async (
   params: Promise<{
     id?: string | "";
+    page?: string | "";
     filter?: string | "";
     category?: string | "";
   }>
 ) => {
-  const { id, filter, category } = await params;
+  const { id, page, filter, category } = await params;
   try {
     let url = `${URL}/anime?page[limit]=20&page[offset]=0`;
 
     if (id) {
       url = `${URL}/anime/${id}`;
+    }
+
+    if (page) {
+      url = `${URL}/anime?page[limit]=20&page[offset]=${page}`;
     }
 
     if (filter) {
