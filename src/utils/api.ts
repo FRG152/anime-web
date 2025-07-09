@@ -9,7 +9,7 @@ export const getAnimes = async (
 ) => {
   const { id, filter, category } = await params;
   try {
-    let url = `${URL}/anime`;
+    let url = `${URL}/anime?page[limit]=20&page[offset]=0`;
 
     if (id) {
       url = `${URL}/anime/${id}`;

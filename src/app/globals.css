@@ -79,6 +79,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
   background-color: #000;
 }
 
@@ -143,8 +144,8 @@ input {
   .navbar__links {
     @apply flex items-center gap-5;
   }
-  .navbar__link {
-    @apply text-white font-extralight cursor-pointer transition-all hover:tracking-widest;
+  .navbar__links {
+    @apply text-white font-extralight cursor-pointer transition-all hover:text-red-500;
   }
 
   .container__search {
@@ -152,7 +153,7 @@ input {
   }
 
   .container__card {
-    @apply w-[230px] h-[350px] relative rounded-[30px] cursor-pointer;
+    @apply w-[230px] h-[350px] relative rounded-[30px] cursor-pointer transition-all hover:scale-[0.95];
   }
   .card__image {
     @apply w-full h-full rounded-[30px] object-cover;
@@ -202,7 +203,7 @@ input {
     @apply w-full text-left text-3xl text-white mb-2;
   }
   .list__content {
-    @apply flex flex-row flex-wrap justify-start gap-5;
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 place-items-center gap-y-5;
   }
 
   .container__swiper {
@@ -228,6 +229,7 @@ input {
   width: 230px;
   height: 350px;
   object-fit: cover;
+  margin: 0 auto;
 }
 
 .loader {

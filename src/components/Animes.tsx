@@ -1,5 +1,6 @@
 import Card from "./Card";
 import { AnimeData } from "@/types";
+import PaginationComponent from "./Pagination";
 
 interface Props {
   data: AnimeData[];
@@ -9,13 +10,14 @@ interface Props {
 
 const ListComponent = async ({ title, data, styles }: Props) => {
   return (
-    <div className={`container__list ${styles}`}>
+    <div id="animes" className={`container__list ${styles}`}>
       {title && <h1 className="list__title">{title}</h1>}
       <div className="list__content">
         {data.map((item: AnimeData) => (
           <Card key={item.id} data={item} showInfo={true} />
         ))}
       </div>
+      <PaginationComponent />
     </div>
   );
 };

@@ -9,13 +9,13 @@ const Hero = async () => {
   const trending = await getTrendingAnimes();
 
   return (
-    <div className="container__hero">
+    <div id="home" className="container__hero">
       <div className="hero__content">
         <h1 className="hero__title">Jujutsu Kaisen</h1>
         <p className="hero__desc">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
-          aspernatur officia optio velit nam, autem molestiae recusandae eius
-          doloremque saepe?
+          Jujutsu Kaisen is an action-packed anime about Yuji Itadori, a high
+          schooler who gains cursed powers and joins a sorcerer school to fight
+          evil spirits and protect people.
         </p>
         <div className="hero__buttons">
           <ButtonComponent styles="bg-white text-black" text="See More" />

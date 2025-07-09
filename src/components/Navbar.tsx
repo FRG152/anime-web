@@ -11,6 +11,18 @@ const Navbar = () => {
         <Link href={"/"} className="navbar__logo">
           AMIVERS
         </Link>
+        <ul className="navbar__links">
+          <li>
+            <a href="#home" className="navbar__links">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#animes" className="navbar__links">
+              Animes
+            </a>
+          </li>
+        </ul>
       </div>
       <Search />
     </div>

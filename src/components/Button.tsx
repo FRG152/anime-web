@@ -8,8 +8,11 @@ interface Props {
 
 const ButtonComponent = ({ icon, text, styles }: Props) => {
   return (
-    <Button className={`${styles} flex items-center rounded-full p-6`}>
-      <span>{icon && icon}</span>
+    <Button
+      variant="default"
+      className={`flex items-center rounded-full p-6 hover:bg-primary hover:text-primary-foreground hover:shadow-xs ${styles}`}
+    >
+      {icon && <span>{icon}</span>}
       <p className="text-md font-semibold">{text}</p>
     </Button>
   );
