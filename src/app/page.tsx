@@ -1,8 +1,6 @@
 import Hero from "@/components/Hero";
 import Animes from "@/components/Animes";
-import { Suspense } from "react";
 import { getAnimes } from "@/utils/api";
-import LoadingComponent from "@/components/Loading";
 
 export default async function Home({
   searchParams,
@@ -18,9 +16,7 @@ export default async function Home({
   return (
     <>
       <Hero />
-      <Suspense fallback={<LoadingComponent />}>
-        <Animes title={"Animes"} data={animes} styles="mt-10" />
-      </Suspense>
+      <Animes title={"Animes"} data={animes} styles="mt-10" />
     </>
   );
 }

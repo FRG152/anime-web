@@ -6,6 +6,7 @@ import ProviderStore from "@/store/ProviderStore";
 import type { Metadata } from "next";
 
 import { Poppins } from "next/font/google";
+import Footer from "@/components/Footer";
 
 interface Props {
   children: React.ReactNode;
@@ -26,9 +27,10 @@ export default async function RootLayout({ children }: Readonly<Props>) {
   return (
     <ProviderStore>
       <html lang="en" className={poppins.className}>
-        <body>
+        <body className="relative">
           <Navbar />
           {children}
+          <Footer />
         </body>
       </html>
     </ProviderStore>
