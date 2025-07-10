@@ -197,13 +197,13 @@ input {
   }
 
   .container__list {
-    @apply min-h-screen flex flex-col px-5;
+    @apply min-h-screen flex flex-col px-5 scroll-mt-[60px];
   }
   .list__title {
     @apply w-full text-left text-3xl text-white mb-2;
   }
   .list__content {
-    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 place-items-center gap-y-5;
+    @apply h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 place-items-center gap-y-5;
   }
 
   .container__swiper {
