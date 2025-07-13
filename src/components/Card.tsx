@@ -22,7 +22,6 @@ const Card = ({ data, showInfo, styles }: Props) => {
           width={1000}
           height={1000}
           className="card__image"
-          priority
         />
         {showInfo && (
           <div className="card__content">

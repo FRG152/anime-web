@@ -2,6 +2,7 @@ interface AnimeTitle {
   en?: string;
   en_jp?: string;
   ja_jp?: string;
+  en_us?: string;
 }
 
 interface Image {
@@ -21,6 +22,7 @@ interface AnimeAttributes {
   updatedAt: string;
   slug: string;
   synopsis: string;
+  description: string;
   coverImageTopOffset: number;
   titles: AnimeTitle;
   canonicalTitle: string;

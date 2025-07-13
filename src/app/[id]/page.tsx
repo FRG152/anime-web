@@ -1,32 +1,21 @@
-import Image from "next/image";
+import HeadContent from "@/components/Detail/HeadContent";
+import TabsComponent from "@/components/Tabs";
 import { getAnimes } from "@/utils/api";
 
-const Page = async ({
-  params,
-}: {
+interface Props {
   params: Promise<{ id?: string; filter?: string; category?: string }>;
-}) => {
-  const { attributes } = await getAnimes(params);
+}
 
+const Page = async ({ params }: Props) => {
+  const { relationships, attributes } = await getAnimes(params);
   return (
-    <div className="min-h-screen flex items-center justify-center px-5">
-      <div className="flex items-center justify-center gap-5">
-        <Image
-          src={attributes?.posterImage.original}
-          alt="poster image"
-          width={1000}
-          height={1000}
-          style={{ width: "700px", height: "700px", objectFit: "cover" }}
-        />
-        <div>
-          <h1 className="text-white text-4xl font-bold">
-            {attributes?.titles?.en
-              ? attributes?.titles?.en_jp
-              : attributes?.titles?.ja_jp}
-          </h1>
-          <p className="text-white text-justify">{attributes?.synopsis}</p>
-        </div>
-      </div>
+    <div className="min-h-screen flex flex-col px-5">
+      {/* <iframe
+        src={`https://www.youtube.com/embed/${attributes.youtubeVideoId}`}
+        className="w-full h-[300px] object-cover mt-[60px]"
+      /> */}
+      <HeadContent data={attributes} />
+      <TabsComponent data={{ ...relationships, ...attributes }} />
     </div>
   );
 };

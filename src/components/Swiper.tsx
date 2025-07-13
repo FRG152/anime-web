@@ -17,10 +17,6 @@ const SwiperComponent = ({ title, data, styles }: Props) => {
     <div className={`container__swiper ${styles}`}>
       {title && <h1 className="swiper__title">{title}</h1>}
       <Swiper
-        // autoplay={{
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // }}
         navigation={true}
         slidesPerView={1}
         spaceBetween={-100}

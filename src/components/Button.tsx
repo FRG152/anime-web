@@ -16,7 +16,7 @@ const ButtonComponent = ({ icon, text, styles, eventButton }: Props) => {
       onClick={eventButton}
       className={`flex items-center rounded-full p-6 hover:bg-primary hover:text-primary-foreground hover:shadow-xs ${styles}`}
     >
-      {icon && <span>{icon}</span>}
+      {icon && icon}
       <p className="text-md font-semibold">{text}</p>
     </Button>
   );
